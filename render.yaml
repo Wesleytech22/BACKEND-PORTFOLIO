@@ -1,0 +1,33 @@
+# Blueprint do Render: no painel, New → Blueprint → este repositório.
+# Os valores marcados com "sync: false" são pedidos na criação e nunca
+# ficam no repositório.
+services:
+  - type: web
+    name: wesley-portfolio-api
+    runtime: node
+    plan: free
+    region: virginia
+    branch: master
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    autoDeploy: true
+    envVars:
+      - key: NODE_VERSION
+        value: "24"
+      # URL do frontend publicado na Vercel (CORS).
+      - key: CORS_ORIGIN
+        value: https://wesley-rodrigues-dias-portfolio.vercel.app
+      # Libera criar/editar/remover pela API. O Render gera um valor aleatório.
+      - key: ADMIN_TOKEN
+        generateValue: true
+      # Token do bot (@BotFather).
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        value: "8747009014"
+      # No plano Free o serviço dorme sem acesso: o bot usa webhook, não polling.
+      - key: TELEGRAM_POLLING
+        value: "false"
+      - key: TELEGRAM_WEBHOOK_SECRET
+        sync: false

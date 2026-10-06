@@ -98,8 +98,12 @@ Crie `src/modules/certificates/` com `certificates.schema.js` e `certificates.mo
 trocando arquivo, schema e rótulo) e registre em `src/app.js`:
 `app.use('/api/certificates', createCertificatesModule(deps).router);`
 
-## Publicação
+## Publicação (Render)
 
-Qualquer serviço Node (Render, Railway): comando `npm start`, variáveis `PORT`, `CORS_ORIGIN`
-(URL do frontend), `ADMIN_TOKEN` e as do Telegram. Os dados ficam em arquivo, então use disco persistente
-ou troque o repositório por um banco.
+O `render.yaml` descreve o serviço: no Render, **New → Blueprint**, escolha este repositório e preencha
+`TELEGRAM_BOT_TOKEN` e `TELEGRAM_WEBHOOK_SECRET` (os outros valores já vêm do arquivo). Cada push na `master`
+publica de novo.
+
+Depois do primeiro deploy, registre o webhook do bot uma vez (ver seção Telegram). No plano Free o serviço
+dorme sem acesso e o disco é apagado a cada deploy: projetos, serviços e experiências vêm do repositório;
+mensagens do contato chegam no Telegram, mas a cópia em `data/messages.json` não persiste.
