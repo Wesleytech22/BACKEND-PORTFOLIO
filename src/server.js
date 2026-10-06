@@ -15,4 +15,13 @@ app.listen(config.port, () => {
     app.locals.telegramBot.startPolling();
     console.log(chatId ? 'Bot do Telegram ouvindo (polling).' : 'Bot do Telegram ouvindo: mande /start para ele e descubra seu chat_id.');
   }
+  if (!chatId) {
+    console.log('TELEGRAM_CHAT_ID vazio: as mensagens do contato ficam salvas e serão enviadas quando ele for configurado.');
+  }
+
+  // Mensagens que chegaram com o Telegram desligado ou fora do ar.
+  app.locals.contact
+    .deliverPending()
+    .then((count) => count && console.log(`${count} mensagem(ns) pendente(s) enviada(s) ao Telegram.`))
+    .catch((err) => console.error('Falha ao reenviar pendentes:', err.message));
 });

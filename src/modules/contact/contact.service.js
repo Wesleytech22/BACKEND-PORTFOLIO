@@ -9,9 +9,10 @@ const formatDate = (iso) =>
 
 const LANG_LABELS = { pt: '🇧🇷 Português', en: '🇺🇸 English', zh: '🇨🇳 中文' };
 
-export function formatContactForTelegram(message) {
+export function formatContactForTelegram(message, { late = false } = {}) {
   return [
-    '📬 <b>Nova mensagem pelo portfólio</b>',
+    late ? '📬 <b>Mensagem pendente do portfólio</b>' : '📬 <b>Nova mensagem pelo portfólio</b>',
+    late ? '<i>Chegou enquanto o Telegram estava desligado.</i>' : null,
     '',
     `👤 <b>${escapeHtml(message.name)}</b>`,
     `✉️ ${escapeHtml(message.email)}`,
@@ -21,32 +22,51 @@ export function formatContactForTelegram(message) {
     escapeHtml(message.message),
     '',
     '<i>Responda direto para o e-mail acima.</i>',
-  ].join('\n');
+  ]
+    .filter((line) => line !== null)
+    .join('\n');
 }
 
 // Recebe a mensagem do site, guarda uma cópia e avisa o dono no Telegram.
-// Se o Telegram falhar, a mensagem não se perde: fica salva com o status.
+// Se o Telegram falhar ou estiver desligado, a mensagem não se perde: fica
+// salva e é reenviada por deliverPending() quando o Telegram voltar.
+// A resposta diz a verdade sobre a entrega: { received, telegram }.
 export function createContactService({ repository, telegram }) {
+  async function notify(message, options) {
+    if (!telegram.enabled) return 'desativado';
+    try {
+      await telegram.notifyOwner(formatContactForTelegram(message, options));
+      return 'enviado';
+    } catch (err) {
+      console.error('Falha ao avisar no Telegram:', err.message);
+      return 'falhou';
+    }
+  }
+
   return {
     async submit(input) {
       const data = validate(contactSchema, input);
-      if (data.website) return { delivered: true }; // robô: finge sucesso e descarta
+      if (data.website) return { received: true, telegram: true }; // robô: finge sucesso e descarta
       delete data.website;
       data.lang = parseLang(data.lang) || DEFAULT_LANG;
 
       const message = { slug: randomUUID(), ...data, createdAt: new Date().toISOString() };
-      let status = 'desativado';
-      if (telegram.enabled) {
-        try {
-          await telegram.notifyOwner(formatContactForTelegram(message));
-          status = 'enviado';
-        } catch (err) {
-          console.error('Falha ao avisar no Telegram:', err.message);
-          status = 'falhou';
-        }
-      }
+      const status = await notify(message);
       await repository.insert({ ...message, telegram: status });
-      return { delivered: true };
+      return { received: true, telegram: status === 'enviado' };
+    },
+
+    // Envia ao Telegram as mensagens que ficaram para trás.
+    async deliverPending() {
+      if (!telegram.enabled) return 0;
+      const pending = (await repository.findAll()).filter((m) => m.telegram !== 'enviado');
+      let delivered = 0;
+      for (const message of pending) {
+        const status = await notify(message, { late: true });
+        await repository.update(message.slug, { telegram: status });
+        if (status === 'enviado') delivered++;
+      }
+      return delivered;
     },
 
     async latest(limit = 5) {

@@ -47,5 +47,6 @@ export function createApp(config, overrides = {}) {
   app.use(errorHandler);
 
   app.locals.telegramBot = telegramModule.bot;
+  app.locals.contact = contact.service;
   return app;
 }

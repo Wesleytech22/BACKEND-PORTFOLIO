@@ -141,6 +141,7 @@ test('contato: chega no Telegram, robô é descartado e o limite por IP funciona
 
   const ok = await contact({ name: 'Ana <b>', email: 'ana@exemplo.com', message: 'Quero um app Android!', lang: 'en' });
   assert.equal(ok.status, 201);
+  assert.deepEqual(await ok.json(), { received: true, telegram: true });
   assert.equal(sent.length, 1);
   assert.match(sent[0].text, /Ana &lt;b&gt;/); // HTML escapado
   assert.match(sent[0].text, /English/);
@@ -161,6 +162,32 @@ test('contato: chega no Telegram, robô é descartado e o limite por IP funciona
   await contact({ name: 'Ana', email: 'ana@exemplo.com', message: 'Mais uma mensagem aqui.' });
   const limited = await contact({ name: 'Ana', email: 'ana@exemplo.com', message: 'Passou do limite agora.' });
   assert.equal(limited.status, 429);
+});
+
+test('contato com Telegram desligado: avisa a verdade e reenvia depois', async () => {
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), 'portfolio-pending-'));
+  const offline = { ...fakeTelegram, enabled: false };
+  const config = { port: 0, corsOrigins: [], adminToken: TOKEN, dataDir: dir, contactRateLimit: { max: 10, windowMs: 60_000 }, telegram: {} };
+  const localApp = createApp(config, { telegram: offline });
+  const localServer = localApp.listen(0);
+  await new Promise((resolve) => localServer.once('listening', resolve));
+  try {
+    const res = await fetch(`http://127.0.0.1:${localServer.address().port}/api/contact`, {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify({ name: 'Bia', email: 'bia@exemplo.com', message: 'Mensagem com Telegram desligado.' }),
+    });
+    assert.deepEqual(await res.json(), { received: true, telegram: false });
+
+    sent.length = 0;
+    offline.enabled = true; // Telegram configurado depois
+    assert.equal(await localApp.locals.contact.deliverPending(), 1);
+    assert.match(sent[0].text, /Mensagem pendente/);
+    assert.equal(await localApp.locals.contact.deliverPending(), 0); // não reenvia duas vezes
+  } finally {
+    localServer.close();
+    await fs.rm(dir, { recursive: true, force: true });
+  }
 });
 
 test('bot: responde ao dono com /resumo e recusa estranhos', async () => {
