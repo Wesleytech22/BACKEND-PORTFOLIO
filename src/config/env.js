@@ -7,7 +7,7 @@ export function loadConfig(env = process.env) {
     port: Number(env.PORT) || 3333,
     corsOrigins: (env.CORS_ORIGIN || 'http://localhost:5173')
       .split(',')
-      .map((origin) => origin.trim())
+      .map((origin) => origin.trim().replace(/\/+$/, '')) // "https://site.app/" vale como "https://site.app"
       .filter(Boolean),
     adminToken: env.ADMIN_TOKEN || '',
     dataDir: path.resolve(env.DATA_DIR || './data'),
