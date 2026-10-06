@@ -1,0 +1,78 @@
+[
+  {
+    "slug": "analista-de-desenvolvimento",
+    "title": "Analista de Desenvolvimento",
+    "company": "Amazonas Inovare",
+    "period": "jan de 2026 – atual",
+    "highlights": [
+      "Desenvolvimento mobile e manutenção de software backend e frontend.",
+      "Homologação de novos terminais de pagamento POS e totens de autoatendimento de diversos fabricantes (Nexgo, Newland e outros).",
+      "Homologação de terminais em sistema MDM, com comunicação e serviços remotos.",
+      "Programação orientada a eventos e participação no ciclo completo do produto: planejamento, codificação e implantação.",
+      "Colaboração com as equipes de design e suporte para melhorar a experiência do usuário."
+    ],
+    "tags": ["Kotlin", "Android", "MDM", "POS", "Node.js"],
+    "order": 1,
+    "i18n": {
+      "en": {
+        "title": "Software Development Analyst",
+        "period": "Jan 2026 – present",
+        "highlights": [
+          "Mobile development and maintenance of backend and frontend software.",
+          "Certification of new POS payment terminals and self-service kiosks from several manufacturers (Nexgo, Newland and others).",
+          "Certification of terminals in an MDM system, including remote communication and services.",
+          "Event-driven programming and involvement in the full product cycle: planning, coding and deployment.",
+          "Collaboration with design and support teams to improve the user experience."
+        ]
+      },
+      "zh": {
+        "title": "软件开发分析师",
+        "period": "2026年1月 – 至今",
+        "highlights": [
+          "移动端开发，以及后端和前端软件的维护。",
+          "认证多家厂商（Nexgo、Newland 等）的新款 POS 支付终端和自助服务终端。",
+          "在 MDM 系统中认证终端，涵盖远程通信与服务。",
+          "事件驱动编程，参与产品全周期：规划、编码和部署。",
+          "与设计和支持团队协作，提升用户体验。"
+        ]
+      }
+    },
+    "createdAt": "2026-10-05T00:00:00.000Z",
+    "updatedAt": "2026-10-05T00:00:00.000Z"
+  },
+  {
+    "slug": "analista-de-suporte-tecnico",
+    "title": "Analista de Suporte Técnico",
+    "company": "Amazonas Inovare",
+    "period": "mai de 2025 – jan de 2026",
+    "highlights": [
+      "Resolução de problemas de software e hardware para clientes e usuários internos.",
+      "Documentação detalhada de incidentes e soluções em sistemas de ticket.",
+      "Colaboração com o desenvolvimento para reportar problemas e sugerir melhorias de produto."
+    ],
+    "tags": ["Software", "Hardware", "Help Desk"],
+    "order": 2,
+    "i18n": {
+      "en": {
+        "title": "Technical Support Analyst",
+        "period": "May 2025 – Jan 2026",
+        "highlights": [
+          "Troubleshooting software and hardware issues for customers and internal users.",
+          "Detailed documentation of incidents and solutions in ticketing systems.",
+          "Working with the development team to report issues and suggest product improvements."
+        ]
+      },
+      "zh": {
+        "title": "技术支持分析师",
+        "period": "2025年5月 – 2026年1月",
+        "highlights": [
+          "为客户和内部用户解决软件及硬件问题。",
+          "在工单系统中详细记录事件及解决方案。",
+          "与开发团队协作，反馈问题并提出产品改进建议。"
+        ]
+      }
+    },
+    "createdAt": "2026-10-05T00:00:00.000Z",
+    "updatedAt": "2026-10-05T00:00:00.000Z"
+  }
+]

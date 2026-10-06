@@ -11,5 +11,12 @@ export function loadConfig(env = process.env) {
       .filter(Boolean),
     adminToken: env.ADMIN_TOKEN || '',
     dataDir: path.resolve(env.DATA_DIR || './data'),
+    contactRateLimit: { max: 5, windowMs: 10 * 60 * 1000 },
+    telegram: {
+      botToken: env.TELEGRAM_BOT_TOKEN || '',
+      chatId: env.TELEGRAM_CHAT_ID || '',
+      polling: env.TELEGRAM_POLLING === 'true',
+      webhookSecret: env.TELEGRAM_WEBHOOK_SECRET || '',
+    },
   };
 }

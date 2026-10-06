@@ -1,5 +1,6 @@
 import { AppError } from '../errors/AppError.js';
 import { validate } from '../validation/validate.js';
+import { localize } from '../i18n.js';
 import { slugify } from './slugify.js';
 
 // Regras de negócio comuns a qualquer coleção do portfólio (projetos,
@@ -11,17 +12,18 @@ export class CatalogService {
     this.label = label;
   }
 
-  async list({ featured } = {}) {
+  async list({ featured, lang } = {}) {
     const items = await this.repository.findAll();
     return items
       .filter((item) => featured === undefined || Boolean(item.featured) === featured)
-      .sort((a, b) => (a.order ?? 0) - (b.order ?? 0) || a.title.localeCompare(b.title, 'pt-BR'));
+      .sort((a, b) => (a.order ?? 0) - (b.order ?? 0) || a.title.localeCompare(b.title, 'pt-BR'))
+      .map((item) => localize(item, lang));
   }
 
-  async get(slug) {
+  async get(slug, { lang } = {}) {
     const item = await this.repository.findBySlug(slug);
     if (!item) throw AppError.notFound(`${this.label} não encontrado.`);
-    return item;
+    return localize(item, lang);
   }
 
   async create(input) {

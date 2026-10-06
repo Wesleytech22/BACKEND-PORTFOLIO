@@ -1,37 +1,77 @@
 [
   {
-    "slug": "desenvolvimento-web",
-    "title": "Desenvolvimento web",
-    "description": "Sistemas completos do banco de dados à interface: React, Node.js, SQL com migrations e integração entre serviços.",
-    "tags": ["React", "Node.js", "PostgreSQL"],
+    "slug": "apps-android-nativos",
+    "title": "Apps Android nativos",
+    "description": "Aplicativos em Kotlin com Jetpack Compose: interfaces modernas, arquitetura em camadas e funcionamento offline-first.",
+    "tags": ["Kotlin", "Jetpack Compose", "Java"],
     "order": 1,
+    "i18n": {
+      "en": {
+        "title": "Native Android apps",
+        "description": "Kotlin apps built with Jetpack Compose: modern interfaces, layered architecture and offline-first behavior."
+      },
+      "zh": {
+        "title": "原生 Android 应用",
+        "description": "使用 Kotlin 和 Jetpack Compose 开发应用：现代化界面、分层架构，支持离线优先。"
+      }
+    },
     "createdAt": "2026-10-05T00:00:00.000Z",
     "updatedAt": "2026-10-05T00:00:00.000Z"
   },
   {
-    "slug": "qa-e-automacao-de-testes",
-    "title": "QA e automação de testes",
-    "description": "Planejamento e execução de testes de API e de interface com cenários felizes, tristes e de regressão, automação com Cypress e evidências no Jira.",
-    "tags": ["Cypress", "Jira", "API"],
+    "slug": "comunicacao-em-tempo-real",
+    "title": "Comunicação em tempo real",
+    "description": "Apps conectados com MQTT e WebSockets e integração com a nuvem pelo AWS Mobile SDK, com programação orientada a eventos.",
+    "tags": ["MQTT", "WebSockets", "AWS"],
     "order": 2,
+    "i18n": {
+      "en": {
+        "title": "Real-time communication",
+        "description": "Connected apps using MQTT and WebSockets, with cloud integration through the AWS Mobile SDK and event-driven programming."
+      },
+      "zh": {
+        "title": "实时通信",
+        "description": "基于 MQTT 和 WebSocket 的互联应用，通过 AWS Mobile SDK 集成云服务，采用事件驱动编程。"
+      }
+    },
     "createdAt": "2026-10-05T00:00:00.000Z",
     "updatedAt": "2026-10-05T00:00:00.000Z"
   },
   {
-    "slug": "scrum-e-gestao-de-entregas",
-    "title": "Scrum e gestão de entregas",
-    "description": "Refinamento, Sprint Review, E-Kanban, fluxo de branches até produção e atas de publicação.",
-    "tags": ["Scrum", "Kanban", "Git"],
+    "slug": "apps-para-terminais-pos-e-totens",
+    "title": "Apps para terminais POS e totens",
+    "description": "Homologação e desenvolvimento para terminais de pagamento e totens de autoatendimento, com gestão remota por sistemas MDM.",
+    "tags": ["POS", "Totens", "MDM"],
     "order": 3,
+    "i18n": {
+      "en": {
+        "title": "Apps for POS terminals and kiosks",
+        "description": "Certification and development for payment terminals and self-service kiosks, with remote management through MDM systems."
+      },
+      "zh": {
+        "title": "POS 终端与自助终端应用",
+        "description": "支付终端和自助服务终端的认证与开发，并通过 MDM 系统进行远程管理。"
+      }
+    },
     "createdAt": "2026-10-05T00:00:00.000Z",
     "updatedAt": "2026-10-05T00:00:00.000Z"
   },
   {
-    "slug": "automacao-com-n8n",
-    "title": "Automação com N8N",
-    "description": "Workflows de disparo de mensagens e chatbots integrados ao backend por webhooks.",
-    "tags": ["N8N", "Webhooks", "Telegram"],
+    "slug": "apis-para-apps",
+    "title": "APIs para apps",
+    "description": "Backends em Node.js e TypeScript que alimentam os aplicativos: autenticação, dados e notificações.",
+    "tags": ["Node.js", "TypeScript", "REST"],
     "order": 4,
+    "i18n": {
+      "en": {
+        "title": "APIs for apps",
+        "description": "Node.js and TypeScript backends that power the apps: authentication, data and notifications."
+      },
+      "zh": {
+        "title": "应用后端 API",
+        "description": "使用 Node.js 和 TypeScript 构建为应用提供支持的后端：身份验证、数据和通知。"
+      }
+    },
     "createdAt": "2026-10-05T00:00:00.000Z",
     "updatedAt": "2026-10-05T00:00:00.000Z"
   }

@@ -2,21 +2,42 @@
   {
     "slug": "edubot",
     "title": "EduBot",
-    "subtitle": "Plataforma web de gestão de oportunidades educacionais e acompanhamento escolar",
-    "description": "Painel para a escola cadastrar oportunidades (bolsas, cursos, eventos) e dispará-las em massa para alunos e famílias, com um chatbot que responde dúvidas e respeita o consentimento (LGPD).",
+    "subtitle": "Plataforma de oportunidades educacionais com chatbot",
+    "description": "Painel para a escola cadastrar oportunidades (bolsas, cursos, eventos) e dispará-las em massa para alunos e famílias, com um chatbot no Telegram que responde dúvidas e respeita o consentimento (LGPD).",
     "highlights": [
+      "Chatbot no Telegram com opt-in (ENTRAR), opt-out (SAIR), MENU e respostas automáticas por oportunidade.",
       "Disparo em massa com resultado por contato e reenvio só para quem falhou.",
-      "Chatbot com opt-in (ENTRAR), opt-out (SAIR), MENU e FAQ por oportunidade.",
-      "Atendimento: fila de dúvidas não resolvidas para a equipe responder.",
-      "Métricas de engajamento: respostas, dúvidas frequentes e taxa por oportunidade.",
-      "Canal Telegram validado com bot real, enquanto o WhatsApp aguarda pareamento."
+      "Fila de atendimento para as dúvidas que o bot não resolve.",
+      "Métricas de engajamento: respostas, dúvidas frequentes e taxa de resposta por oportunidade."
     ],
-    "tags": ["React", "Vite", "Node.js", "PostgreSQL", "N8N", "Telegram Bot API", "Vercel", "Render"],
+    "tags": ["Node.js", "React", "PostgreSQL", "Telegram Bot API", "N8N"],
     "image": "/assets/lumen-forge-mark.png",
     "repoUrl": "",
     "liveUrl": "",
     "featured": true,
     "order": 1,
+    "i18n": {
+      "en": {
+        "subtitle": "Educational opportunities platform with a chatbot",
+        "description": "A dashboard where schools publish opportunities (scholarships, courses, events) and broadcast them to students and families, with a Telegram chatbot that answers questions and respects consent (LGPD).",
+        "highlights": [
+          "Telegram chatbot with opt-in (ENTRAR), opt-out (SAIR), MENU and automatic answers per opportunity.",
+          "Bulk messaging with per-contact results and resend only to failed deliveries.",
+          "Support queue for questions the bot cannot solve.",
+          "Engagement metrics: replies, frequent questions and response rate per opportunity."
+        ]
+      },
+      "zh": {
+        "subtitle": "带聊天机器人的教育机会平台",
+        "description": "学校可在面板中发布机会（奖学金、课程、活动）并群发给学生和家长；Telegram 聊天机器人自动解答问题，并遵守用户授权（LGPD）。",
+        "highlights": [
+          "Telegram 聊天机器人：支持订阅（ENTRAR）、退订（SAIR）、菜单（MENU）及按机会自动回复。",
+          "群发消息，按联系人显示结果，仅向发送失败的联系人重发。",
+          "人工客服队列，处理机器人无法解决的问题。",
+          "互动指标：回复数、常见问题及各机会的回复率。"
+        ]
+      }
+    },
     "createdAt": "2026-10-05T00:00:00.000Z",
     "updatedAt": "2026-10-05T00:00:00.000Z"
   }
