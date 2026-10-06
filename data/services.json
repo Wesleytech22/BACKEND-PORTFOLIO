@@ -1,0 +1,38 @@
+[
+  {
+    "slug": "desenvolvimento-web",
+    "title": "Desenvolvimento web",
+    "description": "Sistemas completos do banco de dados à interface: React, Node.js, SQL com migrations e integração entre serviços.",
+    "tags": ["React", "Node.js", "PostgreSQL"],
+    "order": 1,
+    "createdAt": "2026-10-05T00:00:00.000Z",
+    "updatedAt": "2026-10-05T00:00:00.000Z"
+  },
+  {
+    "slug": "qa-e-automacao-de-testes",
+    "title": "QA e automação de testes",
+    "description": "Planejamento e execução de testes de API e de interface com cenários felizes, tristes e de regressão, automação com Cypress e evidências no Jira.",
+    "tags": ["Cypress", "Jira", "API"],
+    "order": 2,
+    "createdAt": "2026-10-05T00:00:00.000Z",
+    "updatedAt": "2026-10-05T00:00:00.000Z"
+  },
+  {
+    "slug": "scrum-e-gestao-de-entregas",
+    "title": "Scrum e gestão de entregas",
+    "description": "Refinamento, Sprint Review, E-Kanban, fluxo de branches até produção e atas de publicação.",
+    "tags": ["Scrum", "Kanban", "Git"],
+    "order": 3,
+    "createdAt": "2026-10-05T00:00:00.000Z",
+    "updatedAt": "2026-10-05T00:00:00.000Z"
+  },
+  {
+    "slug": "automacao-com-n8n",
+    "title": "Automação com N8N",
+    "description": "Workflows de disparo de mensagens e chatbots integrados ao backend por webhooks.",
+    "tags": ["N8N", "Webhooks", "Telegram"],
+    "order": 4,
+    "createdAt": "2026-10-05T00:00:00.000Z",
+    "updatedAt": "2026-10-05T00:00:00.000Z"
+  }
+]

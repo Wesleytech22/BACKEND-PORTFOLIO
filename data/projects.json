@@ -1,0 +1,23 @@
+[
+  {
+    "slug": "edubot",
+    "title": "EduBot",
+    "subtitle": "Plataforma web de gestão de oportunidades educacionais e acompanhamento escolar",
+    "description": "Painel para a escola cadastrar oportunidades (bolsas, cursos, eventos) e dispará-las em massa para alunos e famílias, com um chatbot que responde dúvidas e respeita o consentimento (LGPD).",
+    "highlights": [
+      "Disparo em massa com resultado por contato e reenvio só para quem falhou.",
+      "Chatbot com opt-in (ENTRAR), opt-out (SAIR), MENU e FAQ por oportunidade.",
+      "Atendimento: fila de dúvidas não resolvidas para a equipe responder.",
+      "Métricas de engajamento: respostas, dúvidas frequentes e taxa por oportunidade.",
+      "Canal Telegram validado com bot real, enquanto o WhatsApp aguarda pareamento."
+    ],
+    "tags": ["React", "Vite", "Node.js", "PostgreSQL", "N8N", "Telegram Bot API", "Vercel", "Render"],
+    "image": "/assets/lumen-forge-mark.png",
+    "repoUrl": "",
+    "liveUrl": "",
+    "featured": true,
+    "order": 1,
+    "createdAt": "2026-10-05T00:00:00.000Z",
+    "updatedAt": "2026-10-05T00:00:00.000Z"
+  }
+]
